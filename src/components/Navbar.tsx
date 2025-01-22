@@ -1,16 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [currentPath, setCurrentPath] = useState('')
-
-  useEffect(() => {
-    setCurrentPath(window.location.pathname)
-  }, [])
-
-  const isActive = (path: string) => currentPath === path
 
   return (
     <nav className="bg-white shadow-lg fixed w-full top-0 z-50 transition-all duration-300">
@@ -18,52 +12,40 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a 
+            <Link 
               href="/" 
               className="text-xl font-bold text-blue-600 hover:scale-105 transition-transform"
             >
               Plus Consulting
-            </a>
+            </Link>
           </div>
 
           {/* 桌面端菜单 */}
           <div className="hidden md:flex items-center space-x-4">
-            <a 
+            <Link 
               href="/about" 
-              className={`px-3 py-2 transition-all duration-300 ${
-                isActive('/about')
-                  ? 'text-blue-600 font-medium scale-105'
-                  : 'text-gray-700 hover:text-blue-600 hover:scale-105'
-              }`}
+              className="px-3 py-2 text-gray-700 hover:text-blue-600 hover:scale-105 transition-all duration-300"
             >
               关于我们
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/services"
-              className={`px-3 py-2 transition-all duration-300 ${
-                isActive('/services')
-                  ? 'text-blue-600 font-medium scale-105'
-                  : 'text-gray-700 hover:text-blue-600 hover:scale-105'
-              }`}
+              className="px-3 py-2 text-gray-700 hover:text-blue-600 hover:scale-105 transition-all duration-300"
             >
               服务内容
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/contact"
-              className={`px-3 py-2 transition-all duration-300 ${
-                isActive('/contact')
-                  ? 'text-blue-600 font-medium scale-105'
-                  : 'text-gray-700 hover:text-blue-600 hover:scale-105'
-              }`}
+              className="px-3 py-2 text-gray-700 hover:text-blue-600 hover:scale-105 transition-all duration-300"
             >
               联系我们
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/contact" 
               className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               立即咨询
-            </a>
+            </Link>
           </div>
 
           {/* 移动端菜单按钮 */}
@@ -91,36 +73,24 @@ export default function Navbar() {
           }`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <a 
+            <Link 
               href="/about" 
-              className={`block px-3 py-2 rounded-md transition-colors duration-300 ${
-                isActive('/about')
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-              }`}
+              className="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50"
             >
               关于我们
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/services"
-              className={`block px-3 py-2 rounded-md transition-colors duration-300 ${
-                isActive('/services')
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-              }`}
+              className="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50"
             >
               服务内容
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/contact"
-              className={`block px-3 py-2 rounded-md transition-colors duration-300 ${
-                isActive('/contact')
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-              }`}
+              className="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50"
             >
               联系我们
-            </a>
+            </Link>
           </div>
         </div>
       </div>
